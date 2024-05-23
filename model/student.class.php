@@ -15,9 +15,8 @@
     private $school=null;
     private $conexion=null;
 
-    public function __construct($dni, $surname, $name, $birthdate, $phone, $address, $email, $user, $password, $school, $conexion){
+    public function __construct($dni, $surname, $name, $birthdate, $phone, $address, $email, $password, $school, $conexion){
         $this->$dni=$dni;
-        $this->$surname=$surname;
         $this->$name=$name;
         $this->$birthdate=$birthdate;
         $this->$phone=$phone;
@@ -40,16 +39,72 @@
 
     }
     public function deleteStuden(){
-        
+    
+        $sql="DELETE FROM Students WHERE idStudent=".$this->idStudent;
+    .$this->conexion=new Database();
+    $result= $this->conexion->query($sql);
+    $this->conexion-close();
+
+    return $result;
+
     }
     public function editStuden(){
-        
+            $sql="UPDATE Students SET dni=".$this->$dni.", surname='".$this->$surname."', name='".$this->name."'
+            , birthdate='".$this->birthdate."', phone= '".$this->phone."', address='".$this->address."',
+             email='".$this->email."', password='".$this->password."', school='".$this->school."' WHERE idStudent=".$this->idStudent;
+    $this->conexion=new Database();
+    $result= $this->conexion->query($sql);
+    $this->conexion-close();
+    
+    return $result;
     }
     public function getStuden(){
-        
+
+        $sql="SELECT * FROM Students WHERE idStudent=".$this->idStudent;
+    .$this->conexion=new Database();
+    $result= $this->conexion->query($sql);
+    $this->conexion-close();
+
+    if($result){
+        if($row=$result->fetch_assoc()){
+            $this->$dni=$row["dni"];
+            $this->$surname=$row["surname"];
+            $this->$name=$row["name"];
+            $this->$birthdate=["birthdate"];
+            $this->$phone=$row["phone"];
+            $this->$address=$row["address"];
+            $this->$email=$row["email"];
+            $this->$password=$row["password"];
+            $this->$school=$row["school"];
+        return true;
+        }
+    }
+    return false;
+
     }
     public function getAllStuden(){
         
+        $sql="SELECT * FROM Students" ;
+    .$this->conexion=new Database();
+    $result= $this->conexion->query($sql);
+    $this->conexion-close();
+
+    if($result){
+        if($row=$result->fetch_assoc()){
+            $this->$dni=$row["dni"];
+            $this->$surname=$row["surname"];
+            $this->$name=$row["name"];
+            $this->$birthdate=["birthdate"];
+            $this->$phone=$row["phone"];
+            $this->$address=$row["address"];
+            $this->$email=$row["email"];
+            $this->$password=$row["password"];
+            $this->$school=$row["school"];
+        return true;
+        }
+    }
+    return false;
+
     }
     //geeter y Setter
     public function getIdStudent(){
@@ -60,6 +115,5 @@
     }
 
  }
-
 
 ?>
