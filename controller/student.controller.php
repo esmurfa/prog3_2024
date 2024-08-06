@@ -1,12 +1,12 @@
 <?php
 include("../model/student.class.php");
-$operacion=$_REQUEST["operation"];
+$operation=$_REQUEST["operation"];
 $id=$_REQUEST["idStudent"];
 echo $id;
 $student = new Student();
 
 //echo $operacion;
-if($operacion=="add"){
+if($operation=="add"){
     $student->setDni($_REQUEST["dni"]);
     $student->setName($_REQUEST["name"]);
     $student->setSurname($_REQUEST["surname"]);
@@ -17,7 +17,7 @@ if($operacion=="add"){
     $student->setPassword($_REQUEST["password"]);
     $student->setSchool($_REQUEST["school"]);
     $student->addStudent();
-}else if($operacion=="update"){
+}else if($operation=="update"){
     $student->setIdStudent($_REQUEST["idStudent"]);
     $student->setDni($_REQUEST["dni"]);
     $student->setName($_REQUEST["name"]);
@@ -29,7 +29,7 @@ if($operacion=="add"){
     $student->setPassword($_REQUEST["password"]);
     $student->setSchool($_REQUEST["school"]);
     $student->editStudent();
-}else if($operacion=="delete"){
+}else if($operation=="delete"){
     $student->getIdStudent($_REQUEST["id"]);
     $student->deleteStudent();
     echo $result

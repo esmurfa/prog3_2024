@@ -6,19 +6,70 @@ class examPrevius{
     private $grade =null;
     private $remarks =null;
 
-    function addExamPrevius(){
+    public function addExamPrevius(){   
 
     }
-    function deleteExamPrevius(){
+    public function deleteExamPrevius(){
         
     }
-    function editExamPrevius(){
+    public function editExamPrevius(){
         
     }
-    function updateExamPrevius(){
+    public function updateExamPrevius(){
         
     }
+    public function getExamPrevius(){
+        
+    }
+    public function getAllExamPrevius(){
+        
+    }
+    //funcion para que un estudiante pida mesa de examen
+    public function takeExamPrevious(){
 
+    }
+    //funcion para que un profesor ponga la calificaion de un examen
+    public function gradeExamPrevious(){
+
+}
+//getter // setter
+public function getIdExamPrevius(){
+    return $this->idExamPrevius;
+
+}
+
+public function setIdExamPrevius($idExamPrevius){
+    $this->idExamPrevius=$idExamPrevius;
+
+}
+public function getDate(){
+    return $this->date;
+
+}
+
+public function setDate($date){
+    $this->date=$date;
+
+}
+
+public function getGrade(){
+    return $this->grade;
+
+}
+
+public function setGrade($grade){
+    $this->grade=$grade;
+
+}
+public function getremarks(){
+    return $this->remarks;
+
+}
+
+public function setRemarks($remarks){
+    $this->remarks=$remarks;
+
+}
 }
 
 ?>
