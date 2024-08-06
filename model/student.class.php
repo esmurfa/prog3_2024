@@ -41,58 +41,60 @@ class Student{
     return $result;
 
     }
-    public function deleteStuden(){
+    public function deleteStudent(){
     
     $sql="DELETE FROM Students WHERE idStudent=".$this->idStudent;
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion-close();
+    $this->conexion->close();
 
     return $result;
 
     }
-    public function editStuden(){
-            $sql="UPDATE Students SET dni=".$this->$dni.", surname='".$this->$surname."', name='".$this->name."'
+    public function editStudent(){
+            $sql="UPDATE Students SET dni=".$this->dni.", surname='".$this->surname."', name='".$this->name."'
             , birthdate='".$this->birthdate."', phone= '".$this->phone."', address='".$this->address."',
              email='".$this->email."', password='".$this->password."', school='".$this->school."' WHERE idStudent=".$this->idStudent;
-    $this->conexion=new Database();
+             echo $sql;
+             $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion-close();
-    
+    $this->conexion->closeDB();
+    header("Location: http://localhost/escuela%202024/prog3_2024/panelstudent.php");
     return $result;
     }
-    public function getStuden(){
+    public function getStudent(){
 
         $sql="SELECT * FROM Students WHERE idStudent=".$this->idStudent;
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion-close();
+   
 
     if($result){
         if($row=$result->fetch_assoc()){
-            $this->$dni=$row["dni"];
-            $this->$surname=$row["surname"];
-            $this->$name=$row["name"];
-            $this->$birthdate=["birthdate"];
-            $this->$phone=$row["phone"];
-            $this->$address=$row["address"];
-            $this->$email=$row["email"];
-            $this->$password=$row["password"];
-            $this->$school=$row["school"];
+            $this->dni=$row["dni"];
+            $this->surname=$row["surname"];
+            $this->name=$row["name"];
+            $this->birthdate=["birthdate"];
+            $this->phone=$row["phone"];
+            $this->address=$row["address"];
+            $this->email=$row["email"];
+            $this->password=$row["password"];
+            $this->school=$row["school"];
+            $this->conexion->closeDB();
         return true;
         }
     }
+    $this->conexion->closeDB();
     return false;
-
     }
-    public function getAllStuden(){
+    public function getAllStudents(){
         
         $sql="SELECT * FROM Students" ;
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion-close();
+    $this->conexion->closeDB();
 
-    if($result){
+   /* if($result){
         if($row=$result->fetch_assoc()){
             $this->$dni=$row["dni"];
             $this->$surname=$row["surname"];
@@ -105,16 +107,22 @@ class Student{
             $this->$school=$row["school"];
         return true;
         }
-    }
-    return false;
-
+    } return false;
+*/
+$students = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $students[] = $row;
+            }
+        }
+        return $students;
     }
     //geeter y Setter
     public function getIdStudent(){
-        return $this->idStuent;
+        return $this->idStudent;
     }
     public function setIdStudent($idStudent){
-        return $this->idStuent;
+        return $this->idStudent=$idStudent;
     }
 
     public function getDni(){
