@@ -1,6 +1,6 @@
 CREATE TABLE `notas_previas` (
-  `id_alumno` int(8) NOT NULL,
-  `id_espacio` int(3) NOT NULL,
+  `id_student` int(8) NOT NULL,
+  `id_subject` int(3) NOT NULL,
   `nro_permiso` int(10) NOT NULL,
   `fecha_examen` varchar(10) NOT NULL,
   `nota` int(11) NOT NULL,
