@@ -1,7 +1,7 @@
 <?php
     class assistance{
 
-        private $id;
+        private $idAssistance = ;
         private $date;
         private $present;
 
