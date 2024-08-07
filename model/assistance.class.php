@@ -1,9 +1,9 @@
 <?php
     class assistance{
 
-        private $idAssistance = ;
-        private $date;
-        private $present;
+        private $idAssistance = null;
+        private $dateAssistance = null;
+        private $presentAssistace = null;
 
         public function addAssistance(){
 
@@ -24,6 +24,7 @@
         public function getAllAssistance(){
             
         }
+        
     }
 
 ?>
