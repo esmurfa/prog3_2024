@@ -1,3 +1,5 @@
+-- Database name `db_school`
+
 CREATE TABLE `assistance` (
   `id_student` int(10) NOT NULL,
   `turn` varchar(2) NOT NULL,
